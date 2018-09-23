@@ -1,20 +1,8 @@
-import React from 'react'
-import * as BooksAPI from './BooksAPI'
-import './App.css'
+import React, { Component } from 'react';
 
-class BooksApp extends React.Component {
-  state = {
-    books: [] //blank array for BooksAPI.js
-  }
-  componentDidMount() { //get all books from BooksAPI.js
-    BooksAPI.getAll().then((books) => {
-      this.setState({ books })
-    })
-  }
-
-  render() {
-    return (
-      <div className="app">
+class ListBooks extends Component {
+	render () {
+		<div className="app">
         {this.state.showSearchPage ? (
           <div className="search-books">
             <div className="search-books-bar">
@@ -198,8 +186,12 @@ class BooksApp extends React.Component {
           </div>
         )}
       </div>
-    )
-  }
+	}
+
+
 }
 
-export default BooksApp
+
+
+
+export default ListBooks
