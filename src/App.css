@@ -39,6 +39,12 @@ body, .app {
 .bookshelf-title {
   border-bottom: 1px solid #dedede;
 }
+
+/* added */
+ol { 
+  list-style:none!important;
+}
+
 .bookshelf-books {
   text-align: center;
 }

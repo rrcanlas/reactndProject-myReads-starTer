@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import * as BooksAPI from './BooksAPI'
 import './App.css'
 import ListBooks from './ListBooks'
-import BookFinder from './BookFinder'
+
 
 class App extends React.Component {
   state = {
@@ -17,8 +17,19 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <ListBooks 
-        books={this.state.books} />
+        <div className="app">
+          <div className="list-books">
+
+            <div className="list-books-title">
+              <h1>THE BOOK APP</h1>
+            </div>
+
+            <div className="list-books-content">
+              <ListBooks 
+              books={this.state.books} />
+            </div>
+          </div>  
+        </div>
       </div>
 
       
