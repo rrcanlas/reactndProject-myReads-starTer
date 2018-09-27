@@ -1,15 +1,13 @@
 import React from 'react'
 import * as BooksAPI from './BooksAPI'
 import './App.css'
-
 import ShelfTitle from './ShelfTitle'
-
-
 
 class App extends React.Component {
   state = {
     books: [] //blank array for BooksAPI.js
   }
+
   componentDidMount() { //get all books from BooksAPI.js
     BooksAPI.getAll().then((books) => {
       this.setState({ books })
@@ -28,14 +26,12 @@ class App extends React.Component {
 
             <div className="list-books-content">
               <ShelfTitle 
-              books={this.state.books} />
-
+                books={this.state.books}               
+              />
             </div>
           </div>  
         </div>
-      </div>
-
-      
+      </div>      
     )
   }
 }

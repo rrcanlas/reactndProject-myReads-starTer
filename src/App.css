@@ -9,6 +9,9 @@ body, .app {
 }
 
 /* main page */
+h1 {
+  text-align: center;
+}
 
 .list-books-title {
   padding: 10px 0;
@@ -38,6 +41,9 @@ body, .app {
 
 .bookshelf-title {
   border-bottom: 1px solid #dedede;
+  border-top: 1px solid #dedede;
+  
+  text-align: center;
 }
 
 /* added */
