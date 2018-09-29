@@ -2,6 +2,7 @@ import React from 'react'
 import * as BooksAPI from './BooksAPI'
 import './App.css'
 import ShelfTitle from './ShelfTitle'
+import BookFinder from './BookFinder'
 
 class App extends React.Component {
   state = {
@@ -25,9 +26,10 @@ class App extends React.Component {
             </div>
 
             <div className="list-books-content">
-              <ShelfTitle 
+              {/* <ShelfTitle 
                 books={this.state.books}               
-              />
+              /> */}
+              <BookFinder />
             </div>
           </div>  
         </div>

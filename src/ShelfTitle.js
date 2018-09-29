@@ -9,8 +9,10 @@ class ShelfTitle extends Component {
   	}
 
 	 swapBooks = (book, shelf, books) => {
-	    BooksAPI.update(book, shelf)
-	    this.setState({book})   
+	    BooksAPI.update(book, shelf);
+	    BooksAPI.getAll().then((books) => {
+	    this.setState({book})  
+	    }) 
   	}
 	
 	render () {
