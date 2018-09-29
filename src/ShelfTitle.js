@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 //import PropTypes from 'prop-types'
 import ListBooks from './ListBooks'
 import * as BooksAPI from './BooksAPI'
+import BookFinder from './BookFinder'
 
 class ShelfTitle extends Component {
 	state = {
@@ -38,7 +39,7 @@ class ShelfTitle extends Component {
 		    					<ListBooks
 		    						ShelfTitle={ ShelfTitle }
 									books = { this.props.books }
-									swapBooks = {this.swapBooks.bind(this)}						
+									swapBooks = {this.swapBooks}						
 		    					/>
 		    				</div>
 	    				</div>

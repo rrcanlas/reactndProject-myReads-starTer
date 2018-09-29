@@ -15,17 +15,12 @@ class BookFinder extends Component {
 
 	componentDidMount() { //get all books from BooksAPI.js
     BooksAPI.getAll().then((bookFinds) => {
-      this.setState({ bookFinds })
-    })
-  }
+      	this.setState({ bookFinds })
+    	})
+  	}
 
 	updateQuery = (query) => {
 		this.setState({ query: query })
-		this.showBooks(query)
-	}
-
-	showBooks = (query) => {
-		
 	}
 
 	render () {
@@ -42,9 +37,9 @@ class BookFinder extends Component {
 				a=this.state.bookFinds
 			}
 		this.state.bookFinds
-			
-
 		}
+
+		a.sort(sortBy('title'))
 
 		return (
 		<div className="search-books">
@@ -65,11 +60,11 @@ class BookFinder extends Component {
 	        <div className="search-books-results">
 	        	<ol className="books-grid">
                 	
-                	{a.map((book) => (
-                    	<li key={book.id}>
-                    		<OptionValue                	
-	                  			swapBooks={this.state.bookFinds}
-	                        	bookInShelf={ book }
+                	{a.map((foundBook) => (
+                    	<li key={foundBook.id}>
+                    		<OptionValue
+                    			bookInShelf={ foundBook }               	
+	                  			swapBooks={this.props.swapBooks}                        	
 	                        />
 	                    	{console.log('yo')}
                       	</li>

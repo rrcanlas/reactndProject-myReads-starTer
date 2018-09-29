@@ -15,6 +15,13 @@ class App extends React.Component {
     })
   }
 
+  swapBooks = (book, shelf, books) => {
+      BooksAPI.update(book, shelf)
+      BooksAPI.getAll().then((books) => {
+      this.setState({book})  
+    })
+  }
+
   render() {
     return (
       <div>
@@ -29,7 +36,10 @@ class App extends React.Component {
               {/* <ShelfTitle 
                 books={this.state.books}               
               /> */}
-              <BookFinder />
+              <ShelfTitle 
+                swapBooks = {this.swapBooks}
+                books={this.state.books} 
+              />
             </div>
           </div>  
         </div>
