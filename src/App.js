@@ -3,6 +3,7 @@ import * as BooksAPI from './BooksAPI'
 import './App.css'
 import ShelfTitle from './ShelfTitle'
 import BookFinder from './BookFinder'
+import { Route } from 'react-router-dom'
 
 class App extends React.Component {
   state = {
@@ -11,14 +12,16 @@ class App extends React.Component {
 
   componentDidMount() { //get all books from BooksAPI.js
     BooksAPI.getAll().then((books) => {
+      console.log(books)
       this.setState({ books })
     })
   }
 
-  swapBooks = (book, shelf, books) => {
-      BooksAPI.update(book, shelf)
+  swapBooks = (book, shelf) => { //changing categories on books
+      BooksAPI.update(book, shelf).then(() => {   
       BooksAPI.getAll().then((books) => {
-      this.setState({book})  
+      this.setState({ books })  
+      })
     })
   }
 
@@ -29,17 +32,25 @@ class App extends React.Component {
           <div className="list-books">
 
             <div className="list-books-title">
-              <h1>THE BOOK APP</h1>
+              <h1>A BOOK LENDING APP</h1>
             </div>
 
             <div className="list-books-content">
-              {/* <ShelfTitle 
-                books={this.state.books}               
-              /> */}
-              <ShelfTitle 
-                swapBooks = {this.swapBooks}
-                books={this.state.books} 
-              />
+              
+              <Route exact path='/' render={() => (
+                <ShelfTitle
+                  swapBooks = {this.swapBooks}
+                  books={this.state.books} 
+              /> 
+              )}/>
+
+              <Route path='/search' render={() => (
+                <BookFinder 
+                  swapBooks = {this.swapBooks}
+                  books={this.state.books} 
+              /> 
+              )}/>     
+
             </div>
           </div>  
         </div>

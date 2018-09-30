@@ -1,27 +1,30 @@
 import React, { Component } from 'react'
-//import BookFinder from './BookFinder'
 import OptionValue from './OptionValue'
+import { Link } from 'react-router-dom'
 
 class ListBooks extends Component {	
+	
 	render () {
 		console.log(this.props.ShelfTitle.category)
+		//filter books with designated categories
 		return (      
-			<div>
+			<div> 
                 <ol className="books-grid">
                 	{this.props.books
                 	.filter(bookInShelf => bookInShelf.shelf === this.props.ShelfTitle.category)
                 	.map(bookInShelf => (
                     	<li key={bookInShelf.id}>
 	                    	<OptionValue                	
-	                        	swapBooks={this.props.swapBooks}
 	                        	bookInShelf={ bookInShelf }
+	                        	swapBooks={this.props.swapBooks}
 	                        />
+	                        {console.log('yi')}
                       	</li>
                 	))} 
                 </ol>
 
 	            <div className="open-search">
-	              <a onClick={() => this.setState({ showSearchPage: true })}>Add a book</a>
+	            	<Link to="/search">Add a Books</Link>
 	            </div>
 	        </div> 	       
 		);

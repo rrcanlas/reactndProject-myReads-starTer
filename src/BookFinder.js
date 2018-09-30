@@ -1,16 +1,15 @@
 import React, { Component } from 'react'
 import * as BooksAPI from './BooksAPI'
 import escapeRegExp from 'escape-string-regexp'
-//import Proptypes from 'prop-types'
 import sortBy from 'sort-by'
 import OptionValue from './OptionValue'
+import { Link } from 'react-router-dom'
 
 class BookFinder extends Component {	
 
 	state = {
 		query: '',
 		bookFinds: []
-
 	}
 
 	componentDidMount() { //get all books from BooksAPI.js
@@ -25,26 +24,27 @@ class BookFinder extends Component {
 
 	render () {
 		const {query} = this.state
-		let a
-		if (this.state.query) {
+		let displayBooks
+		if (query) {
 			const match = new RegExp(escapeRegExp(this.state.query), 'i')
-			a = this.state.bookFinds.filter((bookFinds) => match.test(bookFinds.title))
+			displayBooks = this.state.bookFinds.filter((bookFinds) => match.test(bookFinds.title) || match.test(bookFinds.authors) )
 			
 		} else {
 			if(this.state.bookFinds.error) {
-				a=this.setState({bookFinds: [] })
+				displayBooks=this.setState({bookFinds: [] })
 			} else {
-				a=this.state.bookFinds
+				displayBooks=this.state.bookFinds
 			}
-		this.state.bookFinds
 		}
 
-		a.sort(sortBy('title'))
+		displayBooks.sort(sortBy('title'))
 
 		return (
 		<div className="search-books">
 	        <div className="search-books-bar">
-	          <a className="close-search" onClick={() => this.setState({ showSearchPage: false })}>Close</a>
+
+	          <Link to="/" className="close-search" >Close</Link>
+	          
 	          <div className="search-books-input-wrapper">
 	         
 	            <input 
@@ -58,9 +58,8 @@ class BookFinder extends Component {
 	        </div>
 
 	        <div className="search-books-results">
-	        	<ol className="books-grid">
-                	
-                	{a.map((foundBook) => (
+	        	<ol className="books-grid">                	
+                	{displayBooks.map((foundBook) => (
                     	<li key={foundBook.id}>
                     		<OptionValue
                     			bookInShelf={ foundBook }               	
