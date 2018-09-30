@@ -20,7 +20,7 @@ class App extends React.Component {
   swapBooks = (book, shelf) => { //changing categories on books
       BooksAPI.update(book, shelf).then(() => {   
       BooksAPI.getAll().then((books) => {
-      this.setState({ books })  
+      this.setState({ books });
       })
     })
   }
@@ -39,8 +39,8 @@ class App extends React.Component {
               
               <Route exact path='/' render={() => (
                 <ShelfTitle
-                  swapBooks = {this.swapBooks}
                   books={this.state.books} 
+                  swapBooks = {this.swapBooks}                  
               /> 
               )}/>
 

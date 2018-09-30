@@ -10,13 +10,14 @@ class ShelfTitle extends Component {
 	swapBooks = (book, shelf) => { //changing categories on books
       BooksAPI.update(book, shelf).then(() => {   
       BooksAPI.getAll().then((book) => {
-      this.setState({ book })  
+      this.setState({ book })
       	})
       })
   	}
-	
+
+
 	render () {
-	console.log(this.props.books);
+	//console.log('Eto:' + this.props.books);
 	var bookShelfTitles = [ 
 		{label: 'Currently Reading', category: 'currentlyReading'},
   		{label: 'Want to Read', category: 'wantToRead'},
@@ -38,7 +39,7 @@ class ShelfTitle extends Component {
 		    					<ListBooks
 		    						ShelfTitle={ ShelfTitle }
 									books = { this.props.books }
-									swapBooks = {this.swapBooks}						
+									swapBooks = {this.props.swapBooks}						
 		    					/>
 		    				</div>
 	    				</div>

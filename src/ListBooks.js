@@ -5,7 +5,8 @@ import { Link } from 'react-router-dom'
 class ListBooks extends Component {	
 	
 	render () {
-		console.log(this.props.ShelfTitle.category)
+		//console.log(this.props.ShelfTitle.category)
+		//console.log('Eto:' + this.props.swapBooks);
 		//filter books with designated categories
 		return (      
 			<div> 
@@ -18,7 +19,7 @@ class ListBooks extends Component {
 	                        	bookInShelf={ bookInShelf }
 	                        	swapBooks={this.props.swapBooks}
 	                        />
-	                        {console.log('yi')}
+	                        {console.log('main page')}
                       	</li>
                 	))} 
                 </ol>

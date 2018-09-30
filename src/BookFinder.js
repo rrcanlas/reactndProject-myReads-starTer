@@ -65,7 +65,7 @@ class BookFinder extends Component {
                     			bookInShelf={ foundBook }               	
 	                  			swapBooks={this.props.swapBooks}                        	
 	                        />
-	                    	{console.log('yo')}
+	                    	{console.log('search page')}
                       	</li>
                 	))} 
                 </ol>
