@@ -3,8 +3,7 @@ import React, { Component } from 'react'
 class OptionValue extends Component {
 
 	render () {
-		//console.log(this.props.bookInShelf.title)
-		//console.log('Eto:' + this.props.swapBooks);
+		console.log(this.props.bookInShelf.title)
 		return (
 			<div className="book">
               <div className="book-top">

@@ -5,9 +5,10 @@ import { Link } from 'react-router-dom'
 class ListBooks extends Component {	
 	
 	render () {
-		//console.log(this.props.ShelfTitle.category)
-		//console.log('Eto:' + this.props.swapBooks);
-		//filter books with designated categories
+		console.log(this.props.ShelfTitle.category)
+
+		//filter books with it's designated categories
+
 		return (      
 			<div> 
                 <ol className="books-grid">

@@ -17,7 +17,7 @@ class App extends React.Component {
     })
   }
 
-  swapBooks = (book, shelf) => { //changing categories on books
+  swapBooks = (book, shelf) => { //changing of categories
       BooksAPI.update(book, shelf).then(() => {   
       BooksAPI.getAll().then((books) => {
       this.setState({ books });
@@ -37,14 +37,14 @@ class App extends React.Component {
 
             <div className="list-books-content">
               
-              <Route exact path='/' render={() => (
+              <Route exact path='/' render={() => ( //main-page
                 <ShelfTitle
                   books={this.state.books} 
                   swapBooks = {this.swapBooks}                  
               /> 
               )}/>
-
-              <Route path='/search' render={() => (
+              
+              <Route path='/search' render={() => ( //search-page
                 <BookFinder 
                   swapBooks = {this.swapBooks}
                   books={this.state.books} 

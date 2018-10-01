@@ -7,7 +7,7 @@ class ShelfTitle extends Component {
     	book: [] //blank array for BooksAPI.js
   	}
 
-	swapBooks = (book, shelf) => { //changing categories on books
+	swapBooks = (book, shelf) => { //changing of categories
       BooksAPI.update(book, shelf).then(() => {   
       BooksAPI.getAll().then((book) => {
       this.setState({ book })
@@ -15,16 +15,16 @@ class ShelfTitle extends Component {
       })
   	}
 
-
 	render () {
-	//console.log('Eto:' + this.props.books);
+	console.log('This is: ' + this.props.books);
+
+	// displays 3 categories (or “bookshelves”) on the main-page
+
 	var bookShelfTitles = [ 
 		{label: 'Currently Reading', category: 'currentlyReading'},
   		{label: 'Want to Read', category: 'wantToRead'},
   		{label: 'Read', category: 'read'}
 		]
-
-		// displays 3 categories (or “bookshelves”) for books 
 		 
 	    return (
 	    	<ol>

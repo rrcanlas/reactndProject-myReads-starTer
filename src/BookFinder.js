@@ -19,17 +19,17 @@ class BookFinder extends Component {
   	}
 
 	updateQuery = (query) => {
-		this.setState({ query: query })
+		this.setState({ query })
 	}
 
 	render () {
 		const {query} = this.state
 		let displayBooks
-		if (query) {
+		if (query) { //if text input, search and display the book
 			const match = new RegExp(escapeRegExp(this.state.query), 'i')
 			displayBooks = this.state.bookFinds.filter((bookFinds) => match.test(bookFinds.title) || match.test(bookFinds.authors) )
 			
-		} else {
+		} else { // if text input empty = display all books
 			if(this.state.bookFinds.error) {
 				displayBooks=this.setState({bookFinds: [] })
 			} else {
